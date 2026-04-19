@@ -1,0 +1,24 @@
+🔍 FLEET AUDIT — 20 skills
+============================================================
+🟢 🔗 accuracy-tracker
+🟢 🔗 archive
+🟢 🔗 cash-out
+🟢 🔗 chief-of-staff
+🟢 🔗 courserafied
+🟢 🔗 fundamentals-desk
+🟢 🔗 future-proof
+🟢 🔗 home
+🟢 🔗 journalist
+🟢 🔗 life-coach
+🟢 🔗 mewtwo
+🟢 🔗 price-desk
+🟢 🔗 project-manager
+🟢 🔗 promptlatro
+🟢 🔗 royal-rumble
+🟢 🔗 skill-builder
+🟢 🔗 study-buddy
+🟢 🔗 technicals-desk
+🟢 🔗 tier
+🟢 🔗 time-machine
+============================================================
+Pass: 20  |  Fail: 0  |  Warnings: 0

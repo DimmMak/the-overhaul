@@ -1,0 +1,32 @@
+
+🏠 HOME BASE — 2026-04-19 01:02
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  🏠 .home (YOU)
+   │
+   ├── 🏦 BLUE HILL CAPITAL (.chief)
+      │    ├── accuracy-tracker
+      │    ├── chief-of-staff
+      │    ├── fundamentals-desk
+      │    ├── journalist
+      │    ├── price-desk
+      │    ├── royal-rumble
+      │    └── technicals-desk
+   │
+   ├── 🎓 LEARNING (.home sensei)
+      │    ├── courserafied
+      │    └── study-buddy
+   │
+   └── 🧰 GENERAL TOOLING (mewtwo)
+           ├── archive
+           ├── cash-out
+           ├── future-proof
+           ├── home
+           ├── life-coach
+           ├── mewtwo
+           ├── project-manager
+           ├── promptlatro
+           ├── skill-builder
+           ├── tier
+           └── time-machine
+

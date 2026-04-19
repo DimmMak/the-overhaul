@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SKILL.md Frontmatter Schema",
+  "description": "Required and optional fields in a skill's SKILL.md frontmatter. Enforced in S2 by install.sh validator.",
+  "version": "0.1.0",
+  "type": "object",
+  "required": [
+    "name",
+    "domain",
+    "description"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Kebab-case skill identifier. Lowercase. Hyphens allowed. No spaces/underscores."
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["fund", "learning", "general"],
+      "description": "Top-level routing domain. Determines which anchor surfaces the skill."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semver version string (e.g., 0.1.0). Bump on every material change."
+    },
+    "role": {
+      "type": "string",
+      "description": "Human-readable job title (real-life role naming convention, per principle_real_life_role_naming)."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 2000,
+      "description": "Free-form trigger description. Must include: what the skill does, trigger phrases, and NOT-for clauses listing 2+ sibling skills to avoid collision."
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "SNES-cartridge contract. Required in S2 (v0.2+ schema).",
+      "properties": {
+        "reads": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "File paths or patterns this skill may read."
+        },
+        "writes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "File paths or patterns this skill may write (should be within own data folder)."
+        },
+        "calls": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Other skills or tools this skill may invoke."
+        },
+        "cannot": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Explicit prohibitions (e.g., 'modify other skills', 'bypass anchor routing')."
+        }
+      }
+    }
+  },
+  "additionalProperties": true,
+  "_enforcement_notes": {
+    "s1": "Only name, domain, description are enforced at install time.",
+    "s2": "capabilities block becomes REQUIRED. install.sh runs this schema check before symlinking.",
+    "s3": "schema_version field added to all data files for forward-compat migrations."
+  }
+}

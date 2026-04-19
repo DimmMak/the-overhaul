@@ -1,0 +1,43 @@
+======================================================================
+🧪 FLEET STRESS TEST — 20 skills · 3 axes · 12 checks
+======================================================================
+
+🌳 Tree   — WHERE things live
+----------------------------------------------------------------------
+  🟢 all skills have domain
+  🟢 domain values are valid
+  🟢 all skills symlinked (no copies)
+  🟢 no orphans in .home map
+  🌳 Tree axis: 4/4 🟢 clean
+
+🎮 Plugin   — WHAT they can do
+----------------------------------------------------------------------
+  🟢 schema v0.3 validation
+  🟢 capabilities block complete
+  🟢 NOT-for collision fences
+  🟢 validator rejects bad skill
+  🎮 Plugin axis: 4/4 🟢 clean
+
+🐧 Unix   — HOW they compose
+----------------------------------------------------------------------
+  🟢 unix_contract block complete
+  🟢 cross-skill audit clean
+  🟢 fund-critical contracts (11/11)
+  🟢 rollback tag exists
+  🐧 Unix axis: 4/4 🟢 clean
+
+======================================================================
+🏆 STRESS TEST SUMMARY
+======================================================================
+
+> 🟢 pass · 🔴 fail · 🟡 partial
+
+| 🟣 Axis    | 🟣 Checks | 🟣 Result       |
+| ---------- | --------- | --------------- |
+| 🌳 Tree     | 4/4       | 🟢 clean       |
+| 🎮 Plugin   | 4/4       | 🟢 clean       |
+| 🐧 Unix     | 4/4       | 🟢 clean       |
+
+Total: 12/12 checks passed
+
+🏆 FLEET HEALTHY — locked world-class state holds.
