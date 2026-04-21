@@ -244,16 +244,91 @@ The rule got pinned verbatim into the relevant principle file. Same mistake beca
 
 ---
 
+## 🩹 Fumble 9 — Serial writes when parallel was available (2026-04-21 Cowork session)
+
+**What happened:** During the memory-clone task (mirroring 37 files from Claude Code's internal memory to Cowork-accessible repo root), Claude wrote files one per tool call instead of batching. User waited ~10 minutes; correct time was ~30 seconds.
+
+**Autopsy:**
+```
+🔍 Mechanism: Default "one Write per turn" habit from chat-style output
+              overrode the tool system's support for parallel tool-use
+              blocks. Claude treated sequential as safer without asking
+              whether parallel was available.
+
+🎬 Replay:    Prompt arrived with ≥3 independent file-write operations.
+              Correct move: single message, N parallel Write calls.
+              What Claude did: N messages, 1 Write each. Same files,
+              10× the wall-clock cost.
+
+📐 Rule:      When ≥3 independent file operations are queued and the
+              runtime supports parallel tool-use, batch them in ONE
+              response block. Sequential mode is the exception (when
+              ops depend on each other's outputs), not the default.
+```
+
+**Rule pinned:** added to `feedback_bash_allowlist_friendly.md` + system-prompt guidance (internal). Batch-when-independent is now default.
+
+**Prevents:** slow serial execution of trivially parallelizable work.
+
+---
+
+## 🩹 Fumble 10 — Missed decision gate on ship-confirm (2026-04-21)
+
+**What happened:** After stress-testing the mode system and confirming ship-gate PASS, Claude emitted a plain "shipped, done" response with no decision gate. User caught it: *"decision gate?"*
+
+**Autopsy:**
+```
+🔍 Mechanism: Confused "execution report" (no fork) with "post-ship
+              moment" (forked: commit? live-test? pivot? rest?).
+              The ship was done; the next step WAS a fork; gate owed.
+
+🎬 Replay:    Response shape defaulted to stats-table-and-done.
+              Should have read: "what happens next from here?" → at
+              least 3 real paths → gate required.
+
+📐 Rule:      Every ship-confirm is the parent of at least 3 forks
+              (commit, live-verify, pivot, rest). If the user's next
+              move is non-trivial, the gate fires. Ship ≠ terminal.
+```
+
+**Rule pinned:** clarified `feedback_decision_gates.md` — "Ship confirmation counts as a ≥2-path fork by default."
+
+**Prevents:** silent drop-off after execution reports.
+
+---
+
+## 🎁 2026-04-21 Cowork-session autopsies (2 new fumbles)
+
+### Fumble #9 — Serial writes when parallel available
+
+**Mechanism:** Writing 12 memory files one Write-call at a time instead of batching all 12 into a single tool-call block. Cost ~10 minutes of wall time for work that should have been ~30 seconds.
+
+**Replay:** User asked for a memory clone. I wrote `feedback_adaptive_decision_gates.md` → waited for tool return → wrote `feedback_always_recommend.md` → waited → and so on. Each round-trip ~30 seconds serial. User called it out: *"shouldnt you be able to do this instanetly why is it take you 10 min to do this."*
+
+**Rule pinned:** *When N independent files need creation and no write depends on another write's result, issue all N Write calls in a single response block. Serial writes are a latency leak.*
+
+---
+
+### Fumble #10 — Ship-gate without decision gate
+
+**Mechanism:** Reported ship-gate PASS on the mode-system stress test as if it were a closing confirmation · user had to prompt "decision gate?" to get the actual next-step fork surfaced.
+
+**Replay:** Stress round 2 came back 0/0/0. I emitted the pass table + one-liner and stopped. But ship-confirm IS a decision moment (commit now? live-test? pivot? stop?) — exactly when `feedback_decision_gates` should fire.
+
+**Rule pinned:** *Every ship/pass/done event is a decision fork, not a terminal state. If the response says "passed" / "shipped" / "clean," a tier-gate MUST follow with the natural next-step options.*
+
+---
+
 ## 🎯 Meta-lesson — the autopsy machine works
 
-Eight fumbles documented. Each one:
+Ten fumbles documented. Each one:
 1. Caught by the user (or by Claude realizing mid-response)
 2. Autopsied in forced mechanism format
 3. Generated a one-sentence rule
 4. Rule pinned to memory verbatim
 5. Same mistake physically hard to recur
 
-**The compounding effect:** the longer the session went, the fewer fumbles. By S4, the system was largely auto-corrective.
+**The compounding effect:** the longer the session went, the fewer fumbles. By S4, the system was largely auto-corrective. 2026-04-21 Cowork session added fumbles #9 (parallel-write miss) + #10 (ship-gate miss) — both pinned as rules within 3 turns of being caught.
 
 This is what **recursive refinement** means in practice. It's not a buzzword — it's an actual feedback loop that improves a long-running system's behavior over time.
 
