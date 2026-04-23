@@ -42,7 +42,7 @@ Every piece of the system has **one parent**, one canonical location, one unambi
  │    ├── courserafied · study-buddy
  │
  └── 🧰 general domain
-      ├── mewtwo · home · skill-builder · future-proof · tier
+      ├── mewtwo · home · snes-builder · future-proof · tier
       ├── archive · time-machine · cash-out · life-coach
       ├── project-manager · promptlatro
 ```

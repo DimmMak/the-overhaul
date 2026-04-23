@@ -115,7 +115,7 @@ MIT. Learn from it, remix it, ship your own version.
 
 ## 🙏 Credit
 
-- **Ras Mic** — for the recursive refinement + progressive disclosure patterns that inspired skill-builder
+- **Ras Mic** — for the recursive refinement + progressive disclosure patterns that inspired snes-builder
 - **Unix philosophy** (1969 Bell Labs) — the composition model is theirs, 55+ years proven
 - **Built via Claude Code** (Opus 4.7, 1M context) in a single 5-hour session with the author
 

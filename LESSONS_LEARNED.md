@@ -77,7 +77,7 @@ The rule got pinned verbatim into the relevant principle file. Same mistake beca
 
 ---
 
-## 🩹 Fumble 3 — Pre-written content shortcut (skill-builder)
+## 🩹 Fumble 3 — Pre-written content shortcut (snes-builder)
 
 **What happened:** User pasted a finished SKILL.md with `i wanna build this skill`. Claude silently jumped to scaffolding, skipping Phase 1 gates (earn-it / risk×reward / mewtwo check).
 
@@ -100,7 +100,7 @@ The rule got pinned verbatim into the relevant principle file. Same mistake beca
               should be composed via Mewtwo instead.
 ```
 
-**Rule pinned:** added "Critical rule (baked in after a real fumble)" to skill-builder Phase 1.
+**Rule pinned:** added "Critical rule (baked in after a real fumble)" to snes-builder Phase 1.
 
 **Prevents:** fleet bloat from skills that shouldn't exist but came with formatting.
 
@@ -114,22 +114,22 @@ The rule got pinned verbatim into the relevant principle file. Same mistake beca
 ```
 🔍 Mechanism: Default to technical labels (Q1/Q2) when scenes would land
               faster. User's style was ALREADY in principles as
-              "metaphor-first explanation" — but the skill-builder
+              "metaphor-first explanation" — but the snes-builder
               description didn't enforce it.
 
-🎬 Replay:    User's learning style was pinned. The skill-builder still
+🎬 Replay:    User's learning style was pinned. The snes-builder still
               emitted Q1/Q2 because the description didn't include
               "scenes only, no labels."
 
-📐 Rule:      Every question in skill-builder leads with a concrete scene.
+📐 Rule:      Every question in snes-builder leads with a concrete scene.
               Labels like "Q1," "input shape," "objective spec" are
               banned. If asking "which is it — A, B, or C?", you MUST
               first paint Scene A / B / C in plain words.
 ```
 
-**Rule pinned:** strengthened skill-builder standing rules, added Phase 2 example template with "Scene A / Scene B" structure.
+**Rule pinned:** strengthened snes-builder standing rules, added Phase 2 example template with "Scene A / Scene B" structure.
 
-**Prevents:** every future skill-builder session from relapsing into jargon when user is in flow.
+**Prevents:** every future snes-builder session from relapsing into jargon when user is in flow.
 
 ---
 

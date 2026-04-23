@@ -15,7 +15,7 @@
 🟢 🔗 project-manager
 🟢 🔗 promptlatro
 🟢 🔗 royal-rumble
-🟢 🔗 skill-builder
+🟢 🔗 snes-builder
 🟢 🔗 study-buddy
 🟢 🔗 technicals-desk
 🟢 🔗 tier

@@ -49,11 +49,11 @@ Every fund-specific piece in the reference implementation has a domain-agnostic 
 | 5    | `accuracy-tracker` (scoring)        | Your performance feedback loop        |
 | 6    | `journalist` (formatted output)     | Your publishable-artifact generator   |
 | 7    | `.home` (top-level router)          | Your meta-anchor                      |
-| 8    | `skill-builder` (meta-skill)        | Stays the same — domain-agnostic      |
+| 8    | `snes-builder` (meta-skill)        | Stays the same — domain-agnostic      |
 | 9    | `future-proof` (preservation coach) | Stays the same — domain-agnostic      |
 ```
 
-The meta-skills (skill-builder, future-proof) work in ANY domain without modification.
+The meta-skills (snes-builder, future-proof) work in ANY domain without modification.
 
 ---
 
@@ -69,7 +69,7 @@ Why: you can't architect what you haven't suffered yet. Premature architecture i
 
 Copy these as-is from the reference:
 - `future-proof/` — the preservation coach
-- `skill-builder/` — the meta-skill for creating new skills
+- `snes-builder/` — the meta-skill for creating new skills
 - `tier/` — the Risk×Reward matrix
 
 Edit their `domain:` field to `general` in each SKILL.md. Everything else works unchanged.
@@ -106,7 +106,7 @@ Three is often the sweet spot. More than four = complexity. Less than two = just
 
 ### Phase 4 — Build 5-10 domain-specific skills
 
-Use skill-builder. Phase 1 gates filter out the ones that shouldn't exist.
+Use snes-builder. Phase 1 gates filter out the ones that shouldn't exist.
 
 Every skill you build inherits:
 - `domain:` field → auto-routes in your map
@@ -169,7 +169,7 @@ Fix: build crappy v0 first. Suffer for a few weeks. THEN architect.
 
 Symptom: 20 skills on Day 3, half of them unused.
 
-Fix: run skill-builder Phase 1 gates on EVERY new skill. Default SKIP.
+Fix: run snes-builder Phase 1 gates on EVERY new skill. Default SKIP.
 
 ### Mistake 3 — Skip the autopsy loop
 
