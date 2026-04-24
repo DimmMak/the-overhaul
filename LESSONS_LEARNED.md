@@ -21,23 +21,24 @@ The rule got pinned verbatim into the relevant principle file. Same mistake beca
 
 ---
 
-## 🩹 Fumble 1 — Dimension collapse (Risk vs Effort)
+## 🩹 Fumble 1 — Dimension collapse (Risk vs Time To Build)
 
-**What happened:** In a tier list, Claude labeled "20 min of work" as `🟡 Med Risk`. That conflates Risk (what breaks) with Effort (how long).
+**What happened:** In a tier list, Claude labeled "20 min of work" as `🟡 Med Risk`. That conflates Risk (what breaks) with Time To Build (how long). **Renamed from `Effort` on 2026-04-23** — "Effort" invited Low/Med/High answers; "Time To Build" forces concrete time units.
 
 **Autopsy:**
 ```
 🔍 Mechanism: Used "medium" as a vibe, not as a dimension.
               "20 min is not nothing, but not scary" → emitted 🟡 into
-              whatever column came first (Risk), when it belonged in Effort.
+              whatever column came first (Risk), when it belonged in
+              Time To Build.
 
 🎬 Replay:    Three columns should have three independent questions.
               Instead, I ran one blended "how much friction?" and
               scattered one 🟡 across all three.
 
 📐 Rule:      Three boxes. Three questions. Risk = "what BREAKS?" —
-              never "how long?" Effort column exists separately. Do
-              not let friction-vibe collapse the dimensions.
+              never "how long?" Time To Build column exists separately.
+              Do not let friction-vibe collapse the dimensions.
 ```
 
 **Rule pinned:** added explicit "common mistake to avoid" clause to `principle_risk_reward_rating.md`.
